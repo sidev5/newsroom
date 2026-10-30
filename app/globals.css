@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+:root {
+  /* Base */
+  --ivory: #faf7f0;
+  --paper: #ffffff;
+  --feed: #fffdf9;
+  /* Palette */
+  --sky: #99cdd8;
+  --mint: #daebe3;
+  --peach: #fde8d3;
+  --blush: #f3c3b2;
+  --sage: #cfd6c4;
+  --deep-sage: #657166;
+  --deep-sage-dark: #4e5a51;
+  /* Text */
+  --ink: #2c352f;
+  --body: #3b463e;
+  --secondary: #4f5c52;
+  --meta: #657166;
+  /* Lines */
+  --line: #e1e6da;
+  --input: #cfd6c4;
+}
+
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-paper: var(--paper);
+  --color-feed: var(--feed);
+  --color-sky: var(--sky);
+  --color-mint: var(--mint);
+  --color-peach: var(--peach);
+  --color-blush: var(--blush);
+  --color-sage: var(--sage);
+  --color-deep-sage: var(--deep-sage);
+  --color-deep-sage-dark: var(--deep-sage-dark);
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-secondary: var(--secondary);
+  --color-meta: var(--meta);
+  --color-line: var(--line);
+  --color-input: var(--input);
+  --font-sans: var(--font-hanken), system-ui, sans-serif;
+  --font-headline: var(--font-newsreader), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--body);
+  font-family: var(--font-hanken), system-ui, sans-serif;
+}
+
+:where(a, button, input, [tabindex]):focus-visible {
+  outline: 2px solid var(--deep-sage);
+  outline-offset: 2px;
+}
+
+/* ---- Globe markers ---- */
+@keyframes marker-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.marker-ring {
+  animation: marker-pulse 2.2s ease-out infinite;
+}
+
+/* The globe is a hero object: min(640px, 78% of the map height, 92% of its width). The canvas box is
+   1/0.925 of that, because the sphere fills 92.5% of it (room for the atmosphere glow). */
+.globe-box {
+  width: calc(min(640px, 78cqh, 92cqw) / 0.925);
+  aspect-ratio: 1;
+}
+
+.globe-shift {
+  transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.26, 1);
+}
+
+/* The reader slides in from the right over the map; the globe shifts left and shrinks (Dashboard sets
+   --open-scale from the free width) so it stays visible beside it. */
+@media (min-width: 1100px) {
+  .globe-shift[data-open="true"] {
+    transform: translateX(calc(var(--reader-w) / -2)) scale(var(--open-scale, 0.8));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globe-shift {
+    transition: none;
+  }
+}
+
+/* Thin, quiet scrollbar for the feed. */
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sage) transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--sage);
+  border-radius: 4px;
+}
+.thin-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: var(--deep-sage);
+}
+
+/* Feed cards below the fold are not laid out or painted until they scroll near the view (PERF-04).
+   `auto` in the size keeps the height the browser measured once the card has been rendered.
+   Paint containment clips to the box, so the padding (cancelled by the negative margin) leaves room for the
+   focus outline (2px + 2px offset) and the selected card's ring. */
+.feed-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 200px;
+  padding: 5px;
+  margin: -5px;
+}
+
+/* ---- Ticker ---- */
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  animation: ticker-scroll 60s linear infinite;
+}
+
+.ticker:hover .ticker-track,
+.ticker:focus-within .ticker-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marker-ring {
+    animation: none;
+    opacity: 0;
+  }
+  .ticker-track {
+    animation: none;
+  }
+  .ticker {
+    overflow-x: auto;
+  }
+}
+
+/* ---- Write: syntax colours for code blocks (components/story/highlight.tsx). Classes only, no inline styles. ---- */
+.hljs-comment,
+.hljs-quote {
+  color: #8fa095;
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.hljs-meta .hljs-keyword {
+  color: #f3c3b2;
+}
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-meta .hljs-string {
+  color: #99cdd8;
+}
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable {
+  color: #fde8d3;
+}
+.hljs-title,
+.hljs-section,
+.hljs-built_in,
+.hljs-type,
+.hljs-class .hljs-title,
+.hljs-function .hljs-title {
+  color: #daebe3;
+  font-weight: 600;
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-name,
+.hljs-tag,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-property,
+.hljs-params {
+  color: #cfd6c4;
+}
+.hljs-deletion {
+  color: #f3c3b2;
+  text-decoration: line-through;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 700;
+}

@@ -1,0 +1,65 @@
+# The weekly digest, called from GitHub Actions (vercel.json has no crons on the Hobby plan). Monday: the draft first, the send
+# two and a half hours later, so an admin can look at the draft in between. Same secrets as pipeline.yml: SITE_URL and CRON_SECRET.
+# Times in UTC (IST = UTC + 5:30): draft 03:00 UTC (08:30 IST), send 05:30 UTC (11:00 IST). See docs/DEPLOY_VERCEL.md.
+
+name: Weekly digest
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"   # digest-draft (Monday)
+    - cron: "30 5 * * 1"  # digest-send (Monday, later)
+  workflow_dispatch:
+    inputs:
+      route:
+        description: "Which job to run now"
+        required: true
+        type: choice
+        options: [digest-draft, digest-send]
+
+permissions: {}
+
+jobs:
+  call:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: digest-${{ github.event.schedule || inputs.route }}
+      cancel-in-progress: false
+    steps:
+      - name: Call the route
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          SCHEDULE: ${{ github.event.schedule }}
+          CHOSEN: ${{ inputs.route }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${SITE_URL:-}" ] || [ -z "${CRON_SECRET:-}" ]; then
+            echo "Add the repository secrets SITE_URL and CRON_SECRET (Settings > Secrets and variables > Actions)." >&2
+            exit 1
+          fi
+          case "$SITE_URL" in
+            https://*) ;;
+            *) echo "SITE_URL must start with https://" >&2; exit 1 ;;
+          esac
+
+          if [ -n "$CHOSEN" ]; then
+            ROUTE="$CHOSEN"
+          else
+            case "$SCHEDULE" in
+              "0 3 * * 1") ROUTE="digest-draft" ;;
+              "30 5 * * 1") ROUTE="digest-send" ;;
+              *) echo "No job for schedule '$SCHEDULE'" >&2; exit 1 ;;
+            esac
+          fi
+
+          echo "Calling /api/cron/${ROUTE}"
+          STATUS=$(curl --silent --show-error --max-time 120 --output response.txt --write-out '%{http_code}' \
+            --header "Authorization: Bearer ${CRON_SECRET}" "${SITE_URL%/}/api/cron/${ROUTE}" || true)
+          cat response.txt 2>/dev/null || true; echo
+          echo "HTTP status: $STATUS"
+          case "$STATUS" in
+            2??) echo "OK" ;;
+            *) echo "Failed: HTTP $STATUS" >&2; exit 1 ;;
+          esac

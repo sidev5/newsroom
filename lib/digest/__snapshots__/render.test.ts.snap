@@ -1,0 +1,144 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`snapshot > full HTML for a lead and two others 1`] = `
+"<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="x-apple-disable-message-reformatting">
+<title>Company Newsroom weekly: Nordic charging network adds 400 chargers</title>
+</head>
+<body style="margin:0;padding:0;background-color:#FAF7F0;" bgcolor="#FAF7F0">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#FAF7F0;">Here is the week.</div>
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FAF7F0" style="background-color:#FAF7F0;"><tr><td align="center" style="padding:24px 8px;">
+<!--[if mso]><table role="presentation" width="600" align="center" border="0" cellspacing="0" cellpadding="0"><tr><td><![endif]-->
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="width:100%;max-width:600px;">
+<tr><td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:24px 28px 18px 28px;border-bottom:3px solid #657166;">
+<div style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:26px;line-height:32px;font-weight:bold;color:#2C352F;">Company Newsroom</div>
+<div style="font-family:Arial, Helvetica, sans-serif;font-size:13px;line-height:19px;color:#657166;padding:4px 0 0 0;">Weekly digest &middot; Week of 12 October 2026</div>
+</td></tr>
+<tr><td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:20px 28px 22px 28px;font-family:Arial, Helvetica, sans-serif;font-size:16px;line-height:24px;color:#3B463E;">Here is the week.</td></tr>
+<tr><td bgcolor="#DAEBE3" style="background-color:#DAEBE3;font-size:0;line-height:0;"><a href="https://newsroom.example.com/?story=slug-a1" target="_blank" style="text-decoration:none;"><img src="https://images.unsplash.com/photo-a1?ixid=abc&amp;w=1200&amp;h=676&amp;fit=crop" alt="Alt for a1" width="600" height="338" border="0" style="display:block;width:100%;max-width:600px;height:auto;border:0;outline:none;text-decoration:none;font-family:Arial, Helvetica, sans-serif;font-size:14px;line-height:20px;color:#2C352F;background-color:#DAEBE3;"></a></td></tr>
+<tr><td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:24px 28px 28px 28px;">
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr><td style="padding:0 0 12px 0;"><table role="presentation" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#99CDD8" style="background-color:#99CDD8;padding:3px 10px;font-family:Arial, Helvetica, sans-serif;font-size:11px;line-height:14px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#2C352F;">EV</td></tr></table></td></tr>
+<tr><td style="padding:0 0 12px 0;font-family:Georgia, 'Times New Roman', Times, serif;font-size:28px;line-height:34px;font-weight:bold;color:#2C352F;"><a href="https://newsroom.example.com/?story=slug-a1" target="_blank" style="color:#2C352F;text-decoration:none;">Nordic charging network adds 400 chargers</a></td></tr>
+<tr><td style="padding:0 0 20px 0;font-family:Arial, Helvetica, sans-serif;font-size:16px;line-height:24px;color:#3B463E;">First sentence of the story. Second sentence adds detail. Third sentence closes it.</td></tr>
+<tr><td style="padding:0 0 18px 0;"><table role="presentation" border="0" cellspacing="0" cellpadding="0"><tr><td align="center" bgcolor="#657166" style="background-color:#657166;padding:12px 26px;border-radius:6px;"><a href="https://newsroom.example.com/?story=slug-a1" target="_blank" style="font-family:Arial, Helvetica, sans-serif;font-size:15px;line-height:20px;font-weight:bold;color:#FFFFFF;text-decoration:none;display:inline-block;"><span style="color:#FFFFFF;">Read more</span></a></td></tr></table></td></tr>
+<tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:13px;line-height:19px;color:#657166;">Source: <a href="https://www.example.com/news/a1" target="_blank" style="color:#657166;text-decoration:underline;">example.com</a> &middot; Source published 12 October 2026</td></tr>
+<tr><td style="padding:6px 0 0 0;font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:18px;color:#657166;">Photo: <a href="https://unsplash.com/@ada?utm_source=ai_newsroom&amp;utm_medium=referral" target="_blank" style="color:#657166;text-decoration:underline;">Ada Photographer</a></td></tr>
+</table>
+</td></tr>
+<tr><td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:0 28px 12px 28px;border-top:1px solid #E1E6DA;">
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr><td style="padding:20px 0 4px 0;font-family:Georgia, 'Times New Roman', Times, serif;font-size:22px;line-height:28px;font-weight:bold;color:#2C352F;">Also this week</td></tr>
+<tr><td style="padding:14px 0;border-bottom:1px solid #E1E6DA;">
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr>
+<td width="96" valign="top" style="width:96px;font-size:0;line-height:0;">&nbsp;</td>
+<td width="14" style="width:14px;font-size:0;line-height:0;">&nbsp;</td>
+<td valign="top" style="font-family:Arial, Helvetica, sans-serif;">
+<div style="font-family:Arial, Helvetica, sans-serif;font-size:11px;line-height:14px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#657166;padding:0 0 4px 0;">Batteries</div>
+<div style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:18px;line-height:23px;font-weight:bold;padding:0 0 4px 0;"><a href="https://newsroom.example.com/?story=slug-b2" target="_blank" style="color:#2C352F;text-decoration:none;">Solid-state pilot line starts</a></div>
+<div style="font-family:Arial, Helvetica, sans-serif;font-size:14px;line-height:20px;color:#3B463E;padding:0 0 4px 0;">First sentence of the story.</div>
+<div style="font-family:Arial, Helvetica, sans-serif;font-size:13px;line-height:18px;"><a href="https://newsroom.example.com/?story=slug-b2" target="_blank" style="color:#657166;font-weight:bold;text-decoration:underline;">Read more</a></div>
+</td></tr></table>
+</td></tr>
+<tr><td style="padding:14px 0;">
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0"><tr>
+<td width="96" valign="top" style="width:96px;font-size:0;line-height:0;"><a href="https://newsroom.example.com/?story=slug-c3" target="_blank" style="text-decoration:none;"><img src="https://images.unsplash.com/photo-c3?ixid=abc&amp;w=192&amp;h=128&amp;fit=crop" alt="Alt for c3" width="96" height="64" border="0" style="display:block;width:96px;height:64px;border:0;outline:none;text-decoration:none;font-family:Arial, Helvetica, sans-serif;font-size:11px;line-height:14px;color:#2C352F;background-color:#CFD6C4;"></a></td>
+<td width="14" style="width:14px;font-size:0;line-height:0;">&nbsp;</td>
+<td valign="top" style="font-family:Arial, Helvetica, sans-serif;">
+<div style="font-family:Arial, Helvetica, sans-serif;font-size:11px;line-height:14px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#657166;padding:0 0 4px 0;">Defence</div>
+<div style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:18px;line-height:23px;font-weight:bold;padding:0 0 4px 0;"><a href="https://newsroom.example.com/?story=slug-c3" target="_blank" style="color:#2C352F;text-decoration:none;">Ministry orders drones</a></div>
+<div style="font-family:Arial, Helvetica, sans-serif;font-size:14px;line-height:20px;color:#3B463E;padding:0 0 4px 0;">First sentence of the story.</div>
+<div style="font-family:Arial, Helvetica, sans-serif;font-size:13px;line-height:18px;"><a href="https://newsroom.example.com/?story=slug-c3" target="_blank" style="color:#657166;font-weight:bold;text-decoration:underline;">Read more</a></div>
+</td></tr></table>
+</td></tr>
+</table></td></tr>
+<tr><td style="padding:20px 28px 8px 28px;font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:18px;color:#657166;" align="left">
+AI-generated summaries, reviewed by an editor before circulation.<br>
+<a href="https://newsroom.example.com/" target="_blank" style="color:#657166;text-decoration:underline;">Open the Company Newsroom dashboard</a><br>
+Questions or corrections? Contact <a href="mailto:newsroom@example.com" style="color:#657166;text-decoration:underline;">newsroom@example.com</a>.
+</td></tr>
+</table>
+</td></tr></table>
+</body>
+</html>
+"
+`;
+
+exports[`snapshot > full HTML for a single story with an inline lead image 1`] = `
+"<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="x-apple-disable-message-reformatting">
+<title>Company Newsroom weekly: Nordic charging network adds 400 chargers</title>
+</head>
+<body style="margin:0;padding:0;background-color:#FAF7F0;" bgcolor="#FAF7F0">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#FAF7F0;">Here is the week.</div>
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FAF7F0" style="background-color:#FAF7F0;"><tr><td align="center" style="padding:24px 8px;">
+<!--[if mso]><table role="presentation" width="600" align="center" border="0" cellspacing="0" cellpadding="0"><tr><td><![endif]-->
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="width:100%;max-width:600px;">
+<tr><td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:24px 28px 18px 28px;border-bottom:3px solid #657166;">
+<div style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:26px;line-height:32px;font-weight:bold;color:#2C352F;">Company Newsroom</div>
+<div style="font-family:Arial, Helvetica, sans-serif;font-size:13px;line-height:19px;color:#657166;padding:4px 0 0 0;">Weekly digest &middot; Week of 12 October 2026</div>
+</td></tr>
+<tr><td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:20px 28px 22px 28px;font-family:Arial, Helvetica, sans-serif;font-size:16px;line-height:24px;color:#3B463E;">Here is the week.</td></tr>
+<tr><td bgcolor="#DAEBE3" style="background-color:#DAEBE3;font-size:0;line-height:0;"><a href="https://newsroom.example.com/?story=slug-a1" target="_blank" style="text-decoration:none;"><img src="cid:lead-image@company-newsroom" alt="Alt for a1" width="600" height="338" border="0" style="display:block;width:100%;max-width:600px;height:auto;border:0;outline:none;text-decoration:none;font-family:Arial, Helvetica, sans-serif;font-size:14px;line-height:20px;color:#2C352F;background-color:#DAEBE3;"></a></td></tr>
+<tr><td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:24px 28px 28px 28px;">
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr><td style="padding:0 0 12px 0;"><table role="presentation" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#99CDD8" style="background-color:#99CDD8;padding:3px 10px;font-family:Arial, Helvetica, sans-serif;font-size:11px;line-height:14px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#2C352F;">EV</td></tr></table></td></tr>
+<tr><td style="padding:0 0 12px 0;font-family:Georgia, 'Times New Roman', Times, serif;font-size:28px;line-height:34px;font-weight:bold;color:#2C352F;"><a href="https://newsroom.example.com/?story=slug-a1" target="_blank" style="color:#2C352F;text-decoration:none;">Nordic charging network adds 400 chargers</a></td></tr>
+<tr><td style="padding:0 0 20px 0;font-family:Arial, Helvetica, sans-serif;font-size:16px;line-height:24px;color:#3B463E;">First sentence of the story. Second sentence adds detail. Third sentence closes it.</td></tr>
+<tr><td style="padding:0 0 18px 0;"><table role="presentation" border="0" cellspacing="0" cellpadding="0"><tr><td align="center" bgcolor="#657166" style="background-color:#657166;padding:12px 26px;border-radius:6px;"><a href="https://newsroom.example.com/?story=slug-a1" target="_blank" style="font-family:Arial, Helvetica, sans-serif;font-size:15px;line-height:20px;font-weight:bold;color:#FFFFFF;text-decoration:none;display:inline-block;"><span style="color:#FFFFFF;">Read more</span></a></td></tr></table></td></tr>
+<tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:13px;line-height:19px;color:#657166;">Source: <a href="https://www.example.com/news/a1" target="_blank" style="color:#657166;text-decoration:underline;">example.com</a> &middot; Source published 12 October 2026</td></tr>
+<tr><td style="padding:6px 0 0 0;font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:18px;color:#657166;">Photo: <a href="https://unsplash.com/@ada?utm_source=ai_newsroom&amp;utm_medium=referral" target="_blank" style="color:#657166;text-decoration:underline;">Ada Photographer</a></td></tr>
+</table>
+</td></tr>
+
+<tr><td style="padding:20px 28px 8px 28px;font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:18px;color:#657166;" align="left">
+AI-generated summaries, reviewed by an editor before circulation.<br>
+<a href="https://newsroom.example.com/" target="_blank" style="color:#657166;text-decoration:underline;">Open the Company Newsroom dashboard</a><br>
+Questions or corrections? Reply to this email to reach the editors.
+</td></tr>
+</table>
+</td></tr></table>
+</body>
+</html>
+"
+`;
+
+exports[`snapshot > plain text for a lead and two others 1`] = `
+"COMPANY NEWSROOM - Weekly digest
+Week of 12 October 2026
+
+Here is the week.
+
+NORDIC CHARGING NETWORK ADDS 400 CHARGERS
+[EV]
+
+First sentence of the story. Second sentence adds detail. Third sentence closes it.
+
+Read more: https://newsroom.example.com/?story=slug-a1
+Source: example.com (https://www.example.com/news/a1) - published 12 October 2026
+Photo: Ada Photographer
+
+ALSO THIS WEEK
+
+1. Solid-state pilot line starts [Batteries]
+   First sentence of the story.
+   https://newsroom.example.com/?story=slug-b2
+
+2. Ministry orders drones [Defence]
+   First sentence of the story.
+   https://newsroom.example.com/?story=slug-c3
+
+--
+AI-generated summaries, reviewed by an editor before circulation.
+Dashboard: https://newsroom.example.com/
+Contact: newsroom@example.com
+"
+`;

@@ -1,0 +1,88 @@
+# The news pipeline, called from GitHub Actions: the Vercel Hobby plan runs crons at most once a day, so vercel.json has none
+# and these schedules replace them. Never add the same jobs to vercel.json as well: every job would run twice.
+#
+# Repository secrets (Settings > Secrets and variables > Actions):
+#   SITE_URL     https://your-domain (no trailing slash): the deployed site, the same as the app's SITE_URL
+#   CRON_SECRET  the same value as CRON_SECRET in Vercel
+#
+# GitHub runs scheduled workflows in UTC, on the default branch only, can start them some minutes late when it is busy, and
+# switches them off in a public repository after 60 days without repository activity. Check the Actions tab now and then.
+# Times in UTC (IST = UTC + 5:30). The order within each slot is ingest -> classify -> write -> image -> factcheck.
+# See docs/DEPLOY_VERCEL.md; lib/deploy.test.ts checks every schedule below has its route.
+
+name: Pipeline
+
+on:
+  schedule:
+    - cron: "0 5,17 * * *"              # ingest (twice a day)
+    - cron: "30 5,17 * * *"             # classify (twice a day)
+    - cron: "0 2,6,10,14,18,22 * * *"   # write (every 4 hours)
+    - cron: "30 2,6,10,14,18,22 * * *"  # image (every 4 hours)
+    - cron: "0 3,7,11,15,19,23 * * *"   # factcheck (every 4 hours)
+    - cron: "15 1 * * 0"                # cleanup, applied (weekly, Sunday)
+  workflow_dispatch:
+    inputs:
+      route:
+        description: "Which job to run now"
+        required: true
+        type: choice
+        options: [ingest, classify, write, image, factcheck, cleanup-dry-run, cleanup]
+
+# The jobs only call the site over HTTPS: they need no access to this repository.
+permissions: {}
+
+jobs:
+  call:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    # One call of a kind at a time; a late scheduled run waits instead of overlapping.
+    concurrency:
+      group: pipeline-${{ github.event.schedule || inputs.route }}
+      cancel-in-progress: false
+    steps:
+      - name: Call the route
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          SCHEDULE: ${{ github.event.schedule }}
+          CHOSEN: ${{ inputs.route }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${SITE_URL:-}" ] || [ -z "${CRON_SECRET:-}" ]; then
+            echo "Add the repository secrets SITE_URL and CRON_SECRET (Settings > Secrets and variables > Actions)." >&2
+            exit 1
+          fi
+          case "$SITE_URL" in
+            https://*) ;;
+            *) echo "SITE_URL must start with https://" >&2; exit 1 ;;
+          esac
+
+          if [ -n "$CHOSEN" ]; then
+            case "$CHOSEN" in
+              cleanup-dry-run) ROUTE="cleanup" ;;
+              cleanup) ROUTE="cleanup?apply=true" ;;
+              *) ROUTE="$CHOSEN" ;;
+            esac
+          else
+            case "$SCHEDULE" in
+              "0 5,17 * * *") ROUTE="ingest" ;;
+              "30 5,17 * * *") ROUTE="classify" ;;
+              "0 2,6,10,14,18,22 * * *") ROUTE="write" ;;
+              "30 2,6,10,14,18,22 * * *") ROUTE="image" ;;
+              "0 3,7,11,15,19,23 * * *") ROUTE="factcheck" ;;
+              "15 1 * * 0") ROUTE="cleanup?apply=true" ;;
+              *) echo "No job for schedule '$SCHEDULE'" >&2; exit 1 ;;
+            esac
+          fi
+
+          echo "Calling /api/cron/${ROUTE}"
+          # || true: a network failure gives status 000 and is reported below instead of stopping the script here.
+          STATUS=$(curl --silent --show-error --max-time 120 --output response.txt --write-out '%{http_code}' \
+            --header "Authorization: Bearer ${CRON_SECRET}" "${SITE_URL%/}/api/cron/${ROUTE}" || true)
+          cat response.txt 2>/dev/null || true; echo
+          echo "HTTP status: $STATUS"
+          case "$STATUS" in
+            2??) echo "OK" ;;
+            *) echo "Failed: HTTP $STATUS (409 means the stage was already running)" >&2; exit 1 ;;
+          esac
